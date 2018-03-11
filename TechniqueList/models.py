@@ -8,7 +8,7 @@ class Position(models.Model):
 
 class Group(models.Model):
     name = models.CharField(max_length=200)
-    position = models.ForeignKey(Position)
+    position = models.ForeignKey(Position, on_delete=models.CASCADE)
 
 
 class Technique(models.Model):
@@ -22,4 +22,4 @@ class Technique(models.Model):
     repetitions_goal = models.IntegerField(default=10)
     date = models.DateTimeField(default=datetime.now)
     deleted = models.BooleanField(default=False)
-    group = models.ForeignKey(Group)
+    group = models.ForeignKey(Group, on_delete=models.CASCADE)
